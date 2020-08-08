@@ -33,7 +33,7 @@ jobs:
                rm -rf system.new.dat.br system.patch.dat system.transfer.list product.new.dat.br product.transfer.list product.patch.dat
                
        - name: Download Pre-Ported FW from ginkgo
-         if: env.DYNAMIC== 'false'
+         if: env.DYNAMIC == 'false'
          run: |
              aria2c http://tdrive.manofuranium.workers.dev/ROS-MIUI_RedmiNote9S_20.7.29_v12-10.zip
              unzip *.zip -d work
@@ -42,8 +42,8 @@ jobs:
              rm -f system.new.dat.br system.patch.dat system.transfer.list
              
                          
-       - name: Download port ROM
-         if: env.DYMAMIC== 'false'
+       - name: Download non dynamic port ROM
+         if: env.DYMAMIC == 'false'
          run: |
               aria2c $BASE
               unzip *.zip system.new.dat.br system.transfer.list system.patch.dat -d work -qq
@@ -51,8 +51,8 @@ jobs:
               cd work
               zip -r $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip .
               
-       - name: Download port ROM
-         if: env.DYNAMIC== 'true'
+       - name: Download dynamic port ROM
+         if: env.DYNAMIC == 'true'
          run: |
               aria2c $BASE
               unzip *.zip system.new.dat.br system.transfer.list system.patch.dat product.new.dat.br product.transfer.list product.patch.dat -d work -qq
