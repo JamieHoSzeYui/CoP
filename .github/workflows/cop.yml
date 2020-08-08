@@ -21,7 +21,7 @@ jobs:
          run: |
               mkdir work
               cd work
-              sudo apt install wget aria2 python brotli expect
+              sudo apt install wget aria2 python brotli expect spawn
        
        - name: Dynamic porting
          if: env.DYNAMIC == 'true'
