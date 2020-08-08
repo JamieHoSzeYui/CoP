@@ -16,7 +16,7 @@ jobs:
        - name: Checkout
          uses: actions/checkout@master
        
-       - name: Setup env.
+       - name: Setup env
          run: |
               mkdir work
               cd work
