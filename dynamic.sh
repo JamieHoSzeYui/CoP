@@ -10,4 +10,4 @@ unzip *.zip system.new.dat.br system.transfer.list system.patch.dat product.new.
 rm -f *.zip
 cd work
 
-zip -r ok.zip META-INF fimrware-update boot.img dynamic_partitions_op_list system* product* vendor*
+zip -r ok.zip META-INF firmware-update boot.img dynamic_partitions_op_list system* product* vendor*
