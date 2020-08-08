@@ -10,4 +10,4 @@ aria2c $BASE
 unzip *.zip system.new.dat.br system.transfer.list system.patch.dat -d work -qq
 rm -f *.zip
 cd work
-zip -r $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip
+zip -r $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip .
