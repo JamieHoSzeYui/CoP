@@ -1,6 +1,6 @@
 name: CoP
 
-#on: [push]
+on: [push]
 
 env:
   BASE: https://hugeota.d.miui.com/20.8.7/miui_CRUX_20.8.7_19e7fe6b23_10.0.zip
@@ -21,45 +21,17 @@ jobs:
          run: |
               mkdir work
               cd work
-              sudo apt install wget aria2 python brotli 
+              sudo apt install wget aria2 python brotli expect
        
-       - name: Download Pre-Ported FW from Phoenix
+       - name: Dynamic porting
          if: env.DYNAMIC == 'true'
          run:  |
-               aria2c http://tdrive.manofuranium.workers.dev/xiaomi.eu_multi_RedmiNote9Pro_RedmiNote9S_20.7.30_v12-10.zip
-               unzip *.zip -d work
-               rm -f *,zip
-               cd work
-               rm -rf system.new.dat.br system.patch.dat system.transfer.list product.new.dat.br product.transfer.list product.patch.dat
+               bash dynamic.sh
                
-       - name: Download Pre-Ported FW from ginkgo
+       - name: Non-Dynamic porting
          if: env.DYNAMIC == 'false'
          run: |
-             aria2c http://tdrive.manofuranium.workers.dev/ROS-MIUI_RedmiNote9S_20.7.29_v12-10.zip
-             unzip *.zip -d work
-             rm -f *.zip
-             cd work
-             rm -f system.new.dat.br system.patch.dat system.transfer.list
-             
-                         
-       - name: Download non dynamic port ROM
-         if: env.DYMAMIC == 'false'
-         run: |
-              aria2c $BASE
-              unzip *.zip system.new.dat.br system.transfer.list system.patch.dat -d work -qq
-              rm -f *.zip
-              cd work
-              zip -r $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip .
-              
-       - name: Download dynamic port ROM
-         if: env.DYNAMIC == 'true'
-         run: |
-              aria2c $BASE
-              unzip *.zip system.new.dat.br system.transfer.list system.patch.dat product.new.dat.br product.transfer.list product.patch.dat -d work -qq
-              rm -f *.zip
-              cd work
-              zip -r $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip
-
+             bash common.sh
               
        - name: Upload Port ROM
          run: |
