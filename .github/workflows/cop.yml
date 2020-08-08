@@ -27,12 +27,14 @@ jobs:
          if: env.DYNAMIC == 'true'
          run:  |
                bash dynamic.sh
-               
+               mv work/*.zip $MODNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip
+
        - name: Non-Dynamic porting
          if: env.DYNAMIC == 'false'
          run: |
              bash common.sh
-              
+             mv work/*.zip $MODNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip
+
        - name: Upload Port ROM
          run: |
               cd work
@@ -44,7 +46,7 @@ jobs:
               expect \"sftp> \"
               send \"cd /home/frs/project/jamie-roms/miuiport\r\"
               set timeout -1
-              send \"put $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip\r\"
+              send \"put $MODNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip\r\"
               expect \"Uploading\"
               expect \"100%\"
               send \"exit\r\"
