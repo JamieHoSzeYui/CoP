@@ -9,5 +9,5 @@ aria2c $BASE
 unzip *.zip system.new.dat.br system.transfer.list system.patch.dat product.new.dat.br product.transfer.list product.patch.dat -d work -qq
 rm -f *.zip
 cd work
-zip -r $ZIPNAME_RedmiNote9S_$MIUIVER_henlotools-10.zip
-             
+
+zip -r ok.zip META-INF fimrware-update boot.img dynamic_partitions_op_list system* product* vendor*
