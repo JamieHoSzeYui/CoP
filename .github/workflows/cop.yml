@@ -49,7 +49,7 @@ jobs:
               expect \"sftp> \"
               send \"cd /home/frs/project/jamie-roms/miuiport\r\"
               set timeout -1
-              send \"put $MODNAME_RedmiNote9S_$MIUIVER_henlotools_10.zip\r\"
+              send \"put *.zip\r\"
               expect \"Uploading\"
               expect \"100%\"
               send \"exit\r\"
