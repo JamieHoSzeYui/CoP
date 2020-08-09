@@ -29,6 +29,7 @@ jobs:
                bash dynamic.sh
                cd work
                mv *.zip $MODNAME_RedmiNote9S_$MIUIVER_henlotools_10.zip
+               ls
 
        - name: Non-Dynamic porting
          if: env.DYNAMIC == 'false'
