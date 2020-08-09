@@ -36,7 +36,7 @@ jobs:
          run: |
              bash common.sh
              cd work
-             mv *.zip $MODNAME_RedmiNote9S_$MIUIVER_henlotools_10.zip
+             mv ok.zip $MODNAME_RedmiNote9S_$MIUIVER_henlotools_10.zip
 
        - name: Upload Port ROM
          run: |
